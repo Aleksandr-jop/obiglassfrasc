@@ -41,7 +41,8 @@ h1 {
 }
 
 nav ul {
-    list-style: none;
+    color: #2574b5;
+    list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
@@ -51,7 +52,7 @@ nav ul {
 }
 
 nav ul li {
-    display: inline-block;
+    font-size: 1.6vw;
 }
 
 nav ul li a {
@@ -59,7 +60,10 @@ nav ul li a {
     color: #000;
     font-size: 1.8vw;
     padding: 8px;
-    cursor: pointer;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
 }
 
 h2 {
@@ -267,7 +271,8 @@ footer a:hover {
 }
 
 .volver {
-    display: block;
+    width: fit-content;
+    display: inline-block;
     color: red;
     text-decoration: none;
     margin: 20px;
@@ -325,11 +330,15 @@ footer a:hover {
 
     h1 {
         font-size: 7vw;
+        padding-bottom: 20px;
+    }
+
+    nav ul li {
+        font-size: 2.8vw;
     }
 
     nav ul li a {
         font-size: 3vw;
-        margin-top: 5px;
     }
 
     .fa-shopping-cart {
