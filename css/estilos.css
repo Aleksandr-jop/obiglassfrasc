@@ -147,7 +147,6 @@ section {
     text-align: start;
     width: 100%;
     box-sizing: border-box;
-    margin-left: 15px;
     margin-top: 30px;
 }
 
@@ -160,7 +159,7 @@ section {
 .botones {
     display: flex;
     flex-direction: column;
-    margin-left: 50px;
+    margin-left: 35px;
 }
 
 .color-buttons {
