@@ -159,7 +159,11 @@ section {
 .botones {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     margin-left: 35px;
+=======
+    margin-left: 30px;
+>>>>>>> testing
 }
 
 .color-buttons {
