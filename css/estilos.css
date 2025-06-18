@@ -20,8 +20,8 @@ header {
 }
 
 .header-logo {
-    width: 10vw;
-    max-width: 100px;
+    width: 20vw;
+    max-width: 150px;
     height: auto;
 }
 
@@ -44,7 +44,7 @@ nav ul {
     color: #2574b5;
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
     gap: 2vw;
@@ -85,15 +85,6 @@ h2 {
     cursor: pointer;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-main, section {
-    max-width: 100%;
-    overflow: hidden
-}
-
 section {
     display: flex;
     flex-wrap: wrap;
@@ -112,10 +103,8 @@ section {
 }
 
 .reproduct {
-    width: 100%;
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: center;
+    margin-top: 20px;
+    padding-left: 7px;
 }
 
 .fcontenedor {
@@ -232,8 +221,8 @@ section {
 .fa-shopping-cart {
     color: #c05f05;
     font-size: 25px;
-    margin-right: 50px;
-    padding-top: 30px;
+    margin-right: 70px;
+    padding-top: 50px;
 }
 
 .fa-shopping-cart:hover { 
@@ -331,7 +320,7 @@ footer a:hover {
     }
 
     .header-logo {
-        max-width: 12vw;
+        max-width: 16vw;
     }
 
     h1 {
