@@ -20,7 +20,7 @@ header {
 }
 
 .header-logo {
-    width: 100%;
+    width: 20vw;
     max-width: 100px;
     height: auto;
 }
@@ -234,8 +234,8 @@ section {
 .fa-shopping-cart {
     color: #c05f05;
     font-size: 20px;
-    margin-right: 50px;
-    padding-top: 30px;
+    margin-right: 40px;
+    padding-top: 40px;
 }
 
 .fa-shopping-cart:hover { 
