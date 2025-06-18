@@ -85,11 +85,18 @@ h2 {
     cursor: pointer;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+main, section {
+    max-width: 100%;
+    overflow: hidden
+}
+
 section {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    height: auto;
 }
 
 .pcontenedor {
@@ -105,15 +112,16 @@ section {
 }
 
 .reproduct {
-    margin-top: 20px;
-    padding-left: 7px;
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
 }
 
 .fcontenedor {
     display: flex;
-    flex-wrap: wrap;
     margin-top: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     width: 74%;
 }
 
@@ -159,11 +167,7 @@ section {
 .botones {
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     margin-left: 35px;
-=======
-    margin-left: 30px;
->>>>>>> testing
 }
 
 .color-buttons {
@@ -228,8 +232,8 @@ section {
 .fa-shopping-cart {
     color: #c05f05;
     font-size: 25px;
-    margin-right: 70px;
-    padding-top: 50px;
+    margin-right: 50px;
+    padding-top: 30px;
 }
 
 .fa-shopping-cart:hover { 
@@ -245,7 +249,8 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;   
+    justify-content: center;
+    width: 100%;   
 }
 
 footer a {
@@ -443,7 +448,7 @@ footer a:hover {
     }
 }
 
-@media (min-width: 769px) {
+/* @media (min-width: 769px) {
     .main-contactos {
         flex-direction: row;
     }
@@ -475,4 +480,4 @@ footer a:hover {
     .volver {
         font-size: 1.4vw; 
     }   
-}
+} */
