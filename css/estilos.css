@@ -85,9 +85,20 @@ h2 {
     cursor: pointer;
 }
 
+main, section {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 section {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    height: auto;
 }
 
 .pcontenedor {
@@ -103,8 +114,10 @@ section {
 }
 
 .reproduct {
-    margin-top: 20px;
-    padding-left: 7px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
 }
 
 .fcontenedor {
@@ -221,8 +234,8 @@ section {
 .fa-shopping-cart {
     color: #c05f05;
     font-size: 25px;
-    margin-right: 70px;
-    padding-top: 50px;
+    margin-right: 40px;
+    padding-top: 40px;
 }
 
 .fa-shopping-cart:hover { 
