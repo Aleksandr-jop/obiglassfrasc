@@ -99,6 +99,7 @@ section {
     flex-wrap: wrap;
     width: 100%;
     height: auto;
+    margin-bottom: 10px;
 }
 
 .pcontenedor {
@@ -131,7 +132,7 @@ section {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 15px;
+    margin-bottom: 15px;
 }
 
 .contenedor-frasco {
