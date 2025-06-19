@@ -21,7 +21,7 @@ header {
 
 .header-logo {
     width: 20vw;
-    max-width: 150px;
+    max-width: 100px;
     height: auto;
 }
 
@@ -102,29 +102,36 @@ section {
 }
 
 .pcontenedor {
-    padding: 5px;
-    width: 23%;
+    padding-left: 10px;
+    width: 25%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .pcontenedor p {
     font-size: 16px;
 }
 
+.fcontenedor {
+    display: flex; /* Размещает элементы в строку */
+    justify-content: center; /* Центрирует содержимое */
+    gap: 1px; /* Добавляет отступы между элементами */
+    margin-top: 20px;
+}
+
+.fcontenedor iframe,
+.fcontenedor video,
+.fcontenedor img {
+    width: 250px; /* Одинаковая ширина */
+    height: 460px; /* Одинаковая высота */
+    object-fit: cover; /* Заполняет размеры без искажений (только для img и video) */
+}
+
 .reproduct {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 25px;
-}
-
-.fcontenedor {
-    display: flex;
-    margin-top: 20px;
-    margin-bottom: 5px;
-    width: 74%;
+    margin-bottom: 15px;
 }
 
 .contenedor-frasco {
