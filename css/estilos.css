@@ -21,7 +21,7 @@ header {
 
 .header-logo {
     width: 20vw;
-    max-width: 150px;
+    max-width: 100px;
     height: auto;
 }
 
@@ -102,29 +102,36 @@ section {
 }
 
 .pcontenedor {
-    padding: 5px;
-    width: 23%;
+    padding-left: 10px;
+    width: 25%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .pcontenedor p {
     font-size: 16px;
 }
 
+.fcontenedor {
+    display: flex; 
+    justify-content: center; 
+    gap: 1px; 
+    margin-top: 20px;
+}
+
+.fcontenedor iframe,
+.fcontenedor video,
+.fcontenedor img {
+    width: 250px;
+    height: 460px; 
+    object-fit: cover; 
+}
+
 .reproduct {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 25px;
-}
-
-.fcontenedor {
-    display: flex;
-    margin-top: 20px;
     margin-bottom: 15px;
-    width: 74%;
 }
 
 .contenedor-frasco {
@@ -169,7 +176,7 @@ section {
 .botones {
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 35px;
 }
 
 .color-buttons {
@@ -233,7 +240,7 @@ section {
 
 .fa-shopping-cart {
     color: #c05f05;
-    font-size: 20px;
+    font-size: 25px;
     margin-right: 40px;
     padding-top: 40px;
 }
@@ -251,7 +258,8 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;   
+    justify-content: center;
+    width: 100%;   
 }
 
 footer a {
