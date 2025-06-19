@@ -113,25 +113,25 @@ section {
 }
 
 .fcontenedor {
-    display: flex; /* Размещает элементы в строку */
-    justify-content: center; /* Центрирует содержимое */
-    gap: 1px; /* Добавляет отступы между элементами */
+    display: flex; 
+    justify-content: center;
+    gap: 1px; 
     margin-top: 20px;
 }
 
 .fcontenedor iframe,
 .fcontenedor video,
 .fcontenedor img {
-    width: 250px; /* Одинаковая ширина */
-    height: 460px; /* Одинаковая высота */
-    object-fit: cover; /* Заполняет размеры без искажений (только для img и video) */
+    width: 250px;
+    height: 460px; 
+    object-fit: cover; 
 }
 
 .reproduct {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
+    margin: 15px;
 }
 
 .contenedor-frasco {
