@@ -111,6 +111,7 @@ section {
 
 .pcontenedor p {
     font-size: 16px;
+    text-indent: 2em;
 }
 
 .fcontenedor {
@@ -341,12 +342,12 @@ footer a:hover {
     }
 
     .header-logo {
-        max-width: 16vw;
+        max-width: 18vw;
     }
 
     h1 {
         font-size: 7vw;
-        padding-bottom: 20px;
+        padding-bottom: 10px;
     }
 
     nav ul li {
@@ -363,6 +364,7 @@ footer a:hover {
 
     section {
         flex-direction: column;
+        align-items: center;
     }
 
     .pcontenedor {
@@ -378,13 +380,8 @@ footer a:hover {
         align-items: center;
         text-align: center;
         width: 100%;
-    }
-
-    .fcontenedor div {
-        flex: none;
-        width: 100%;
-        margin-bottom: 10px;
         height: auto;
+        margin-bottom: 10px;
     }
 
     .main-contactos {
@@ -424,7 +421,7 @@ footer a:hover {
     }
 
     .item-precio ul {
-        width: 90%;
+        width: 100%;
         max-width: none;
     }
 
