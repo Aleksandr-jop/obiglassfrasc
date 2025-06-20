@@ -138,7 +138,7 @@ section {
 
 .contenedor-frasco {
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     justify-content: flex-start;
     width: 100%;
     font-size: 18px;
@@ -172,7 +172,7 @@ section {
 .item-precio ul {
     width: 300px;
     list-style-type: none;
-    /* padding-inline-start: 30px; */
+    padding-inline-start: 30px;
 }
 
 .botones {
@@ -347,7 +347,7 @@ footer a:hover {
 
     h1 {
         font-size: 7vw;
-        padding-bottom: 10px;
+        /* padding-bottom: 10px; */
     }
 
     nav ul li {
@@ -359,7 +359,7 @@ footer a:hover {
     }
 
     .fa-shopping-cart {
-        padding-bottom: 30px;
+        padding-bottom: 15px;
     }
 
     section {
