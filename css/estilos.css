@@ -59,7 +59,7 @@ nav ul li a {
     text-decoration: none;
     color: #000;
     font-size: 1.8vw;
-    padding-bottom: 8px;
+    /* padding-bottom: 8px; */
 }
 
 nav ul li a:hover {
@@ -170,9 +170,9 @@ section {
 }
 
 .item-precio ul {
-    width: 285px;
+    width: 300px;
     list-style-type: none;
-    padding-inline-start: 30px;
+    /* padding-inline-start: 30px; */
 }
 
 .botones {
@@ -243,8 +243,8 @@ section {
 .fa-shopping-cart {
     color: #c05f05;
     font-size: 25px;
-    margin-right: 35px;
-    padding-top: 50px;
+    margin-right: 20px;
+    padding-top: 65px;
 }
 
 .fa-shopping-cart:hover { 
