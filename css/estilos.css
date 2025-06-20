@@ -184,7 +184,8 @@ section {
 .color-buttons {
     display: flex;
     justify-content: flex-start; 
-    gap: 2px; 
+    gap: 2px;
+    margin: 15px 0; 
 }
 
 .color-buttons button {
@@ -203,7 +204,8 @@ section {
 .medida-buttons {
     display: flex;
     justify-content: flex-start; 
-    gap: 4px; 
+    gap: 4px;
+    margin: 15px 0; 
 }
 
 .medida-buttons button {
@@ -214,7 +216,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .cantidad label {
@@ -444,7 +446,7 @@ footer a:hover {
 
     .butt-frasc {
         margin-left: 0;
-        text-align: center;
+        /* text-align: center; */
     }
 
     footer {
