@@ -162,7 +162,7 @@ section {
 .item-precio {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     text-align: start;
     width: 100%;
     box-sizing: border-box;
