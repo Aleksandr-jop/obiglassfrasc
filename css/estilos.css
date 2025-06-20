@@ -152,7 +152,7 @@ section {
     box-shadow: 0px 3px 6px black;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     margin: 50px;
 }
 
@@ -180,7 +180,8 @@ section {
 .botones {
     display: flex;
     flex-direction: column;
-    margin-left: 15px;
+    text-align: center;
+    margin-left: 10px;
 }
 
 .color-buttons {
@@ -434,7 +435,6 @@ footer a:hover {
     }
 
     .img-frasc img {
-        width: 100%;
         height: auto;
         object-fit: contain;
     }
