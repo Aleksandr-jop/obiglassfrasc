@@ -429,11 +429,12 @@ footer a:hover {
 
     .item-precio {
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
         margin-top: 0;
     }
 
     .item-precio ul {
+        text-align: start;
         width: 100%;
         max-width: none;
     }
