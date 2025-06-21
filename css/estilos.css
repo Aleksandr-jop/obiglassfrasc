@@ -148,17 +148,18 @@ section {
     border: 1px solid #ccc;
     text-align: center;
     width: 300px;
-    height: 420px;
+    height: 380px;
     box-shadow: 0px 3px 6px black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 50px;
+    overflow: hidden;
 }
 
 .img-frasc img {
     width: 300px;
-    height: 300px;
+    height: auto;
 }
 
 .item-precio {
