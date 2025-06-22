@@ -110,9 +110,15 @@ section {
 }
 
 .fcontenedor {
-    display: flex; 
-    justify-content: space-evenly;
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap; 
     gap: 5px; 
+}
+
+.fcontenedor > * {
+  flex: 1 1 345px;
+  width: 345px;
 }
 
 .fcontenedor iframe,
@@ -122,6 +128,18 @@ section {
     max-width: 345px;
     height: auto; 
     object-fit: cover; 
+}
+
+@media (max-width: 1000px) {
+  .fcontenedor {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .fcontenedor > * {
+    flex: 0 0 auto;
+    width: 345px;
+  }
 }
 
 .reproduct {
