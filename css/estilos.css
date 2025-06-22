@@ -1,6 +1,5 @@
 html {
     font-family: 'Times New Roman', Times, serif;
-    overflow: auto;
 }
 
 body {  
@@ -91,6 +90,7 @@ h2 {
 
 section {
     max-width: 100%;
+    overflow: auto;
     display: flex;
     width: 100%;
     height: auto;
