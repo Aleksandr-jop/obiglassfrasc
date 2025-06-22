@@ -111,11 +111,9 @@ section {
 }
 
 .fcontenedor {
-    width: 74%;
     display: flex; 
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 5px; 
-    margin-top: 20px;
 }
 
 .fcontenedor iframe,
