@@ -111,6 +111,7 @@ section {
 }
 
 .fcontenedor {
+    width: 75%;
     display: flex; 
     justify-content: center;
     gap: 5px; 
