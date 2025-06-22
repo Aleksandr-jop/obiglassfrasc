@@ -21,6 +21,7 @@ header {
     box-shadow: 0px 3px 6px black;
     flex-wrap: nowrap; 
     width: 100%;
+    max-width: 100%;
 }
 
 .header-logo {
@@ -267,7 +268,8 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;   
+    width: 100%;
+    max-width: 100%;   
 }
 
 footer a {
