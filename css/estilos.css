@@ -119,7 +119,7 @@ section {
 .fcontenedor video,
 .fcontenedor img {
     width: 100%;
-    /* max-width: 345px; */
+    max-width: 345px;
     height: auto; 
     object-fit: cover; 
 }
