@@ -111,7 +111,7 @@ section {
 }
 
 .fcontenedor {
-    width: 75%;
+    width: 74%;
     display: flex; 
     justify-content: center;
     gap: 5px; 
@@ -338,7 +338,7 @@ footer a:hover {
 }
 
 @media(max-width: 768px) {
-    html, body {
+    body {
         overflow-x: hidden;
     }
 
