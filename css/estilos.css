@@ -90,7 +90,6 @@ h2 {
 
 section {
     max-width: 100%;
-    overflow: auto;
     display: flex;
     width: 100%;
     height: auto;
