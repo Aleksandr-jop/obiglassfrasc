@@ -27,8 +27,9 @@
                 </ul>
             </nav>
         </div>
-        <div>
-            <i class="fas fa-shopping-cart"></i>
+        <div class="cart-wrapper">
+            <i class="fas fa-shopping-cart" id="cart-icon"></i>
+            <span id="cart-count" class="cart-count hidden">0</span>
         </div>
     </header>
 
@@ -42,7 +43,7 @@
             <div class="fcontenedor">
                 <iframe src="https://www.youtube.com/embed/k2gWtkOsakE" title="Bazar y mucho más en nuestra sucursal mayorista en Once | MAYORISTAMAJU.COM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-                <video controls poster="images/frasco-vidrio.jpg" 
+                <video controls poster="images/frasco-vidrio.jpg"> 
                 <source src="video/VID-20210815-WA0021.mp4" type="video/mp4">
                 Tu navegador no soporta la reproducción de video.
                 <track src="video/subtitulo.vtt" kind="subtitles" srclang="es" label="Español" default>
@@ -65,6 +66,16 @@
         </div>
     </footer>
     <i class="fa-brands fa-whatsapp"></i>
+
+    <div id="cart-modal" class="cart-modal hidden">
+        <div class="cart-modal-content">
+            <span id="close-cart" class="close-btn">&times;</span>
+            <h3>Carrito</h3>
+            <ul id="cart-items"></ul>
+            <p id="cart-total"></p>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
     
 </body>
 </html>

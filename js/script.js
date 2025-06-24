@@ -43,13 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (color === 'Claro') return 'Claro';
         return 'Ambar';
     }
-    // ----------последнее добавление------------------------
+    // ------------------------------
     const colorButtons = document.querySelectorAll('.color-buttons button');
 
     colorButtons.forEach(button => {
     button.addEventListener('click', () => {
         selectedColor = button.textContent.trim();
-        console.log('Цвет выбран:', selectedColor);
+        console.log('Color seleccionado:', selectedColor);
     });
 });
 
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sizeButtons.forEach(button => {
     button.addEventListener('click', () => {
         selectedSize = button.textContent.trim();
-        console.log('Размер выбран:', selectedSize);
+        console.log('Tamaño seleccionado:', selectedSize);
     });
 });
 
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-    // ----------последнее добавление------------------------
+    // ------------------------------
     // 🔸 2. Счётчик и количество
     // ------------------------------
 
@@ -91,14 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 }
 
-    // ------------------------------
-    // 🔸 3. Обработка кнопки покупки
-    // ------------------------------
+    // -------------------------------------------
+    // 🔸 3. Обработка кнопки "Agregar al carrito"
+    // -------------------------------------------
 
     if (buyButton) {
         buyButton.addEventListener('click', () => {
             if (!selectedColor || !selectedSize) {
-                alert('Выберите цвет и размер!');
+                alert('Elige color y tamaño!');
                 return;
             }
 
@@ -122,12 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 cartCount.classList.remove('hidden');
             }
 
-            alert(`Товар добавлен:
-Цвет: ${item.color}
-Размер: ${item.size}
-Кол-во: ${item.cantidad}
-Цена за 1: $${item.precioUnitario}
-Сумма: $${item.total}`);
+            alert(`Producto agregado:
+Color: ${item.color}
+Tamaño: ${item.size}
+Cantidad: ${item.cantidad}
+Precio c/u: $${item.precioUnitario}
+Total: $${item.total}`);
         });
     }
 
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cartItemsList.innerHTML = '';
 
     if (cart.length === 0) {
-        cartItemsList.innerHTML = '<li>Корзина пуста.</li>';
+        cartItemsList.innerHTML = '<li>El carrito está vacío.</li>';
         cartTotal.textContent = '';
         cartCount.classList.add('hidden');
         return;
@@ -152,8 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
     cart.forEach((item, index) => {
         const li = document.createElement('li');
         li.innerHTML = `
-            ${item.color}, ${item.size}, ${item.cantidad} шт — $${item.total}
-            <button class="remove-item" data-index="${index}" title="Удалить товар">×</button>
+            ${item.color}, ${item.size}, ${item.cantidad} Ud. — $${item.total}
+            <button class="remove-item" data-index="${index}" title="Quitar el producto">×</button>
         `;
         cartItemsList.appendChild(li);
         total += item.total;
