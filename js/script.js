@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 🔸 0. Глобальные переменные и DOM-элементы
     // ------------------------------
 
-    const cart = [];
+    // Восстанавливаем корзину из localStorage или создаем новую
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const cartIcon = document.getElementById('cart-icon');
     const cartModal = document.getElementById('cart-modal');
@@ -22,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ------------------------------
     // 🔸 1. Таблица цен
     // ------------------------------
-
     const precios = {
         'Ambar': {
             '10ml': 728, '15ml': 754, '20ml': 806,
@@ -47,49 +47,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const colorButtons = document.querySelectorAll('.color-buttons button');
 
     colorButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        selectedColor = button.textContent.trim();
-        console.log('Color seleccionado:', selectedColor);
+        button.addEventListener('click', () => {
+            selectedColor = button.textContent.trim();
+            console.log('Color seleccionado:', selectedColor);
+        });
     });
-});
 
     const sizeButtons = document.querySelectorAll('.medida-buttons button');
 
     sizeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        selectedSize = button.textContent.trim();
-        console.log('Tamaño seleccionado:', selectedSize);
+        button.addEventListener('click', () => {
+            selectedSize = button.textContent.trim();
+            console.log('Tamaño seleccionado:', selectedSize);
+        });
     });
-});
 
     colorButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        colorButtons.forEach(b => b.classList.remove('active'));
-        button.classList.add('active');
-        selectedColor = button.textContent.trim();
+        button.addEventListener('click', () => {
+            colorButtons.forEach(b => b.classList.remove('active'));
+            button.classList.add('active');
+            selectedColor = button.textContent.trim();
+        });
     });
-});
 
     sizeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        sizeButtons.forEach(b => b.classList.remove('active'));
-        button.classList.add('active');
-        selectedSize = button.textContent.trim();
+        button.addEventListener('click', () => {
+            sizeButtons.forEach(b => b.classList.remove('active'));
+            button.classList.add('active');
+            selectedSize = button.textContent.trim();
+        });
     });
-});
 
     // ------------------------------
     // 🔸 2. Счётчик и количество
     // ------------------------------
 
     if (cantidadInput) {
-    cantidadInput.value = 1; // ← сбрасываем значение при загрузке
-    selectedCantidad = 1;     // ← синхронизируем переменную
+        cantidadInput.value = 1; // сбрасываем значение при загрузке
+        selectedCantidad = 1;     // синхронизируем переменную
 
-    cantidadInput.addEventListener('input', () => {
-        selectedCantidad = parseInt(cantidadInput.value) || 1;
-    });
-}
+        cantidadInput.addEventListener('input', () => {
+            selectedCantidad = parseInt(cantidadInput.value) || 1;
+        });
+    }
 
     // -------------------------------------------
     // 🔸 3. Обработка кнопки "Agregar al carrito"
@@ -115,8 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             cart.push(item);
+            // Обновляем localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
 
-            // Обновляем счётчик
+            // Обновляем счетчик
             if (cartCount) {
                 cartCount.textContent = cart.length;
                 cartCount.classList.remove('hidden');
@@ -136,52 +138,59 @@ Total: $${item.total}`);
     // ------------------------------
 
     function renderCart() {
-    if (!cartItemsList || !cartTotal || !cartCount) return;
+        if (!cartItemsList || !cartTotal || !cartCount) return;
 
-    cartItemsList.innerHTML = '';
+        cartItemsList.innerHTML = '';
 
-    if (cart.length === 0) {
-        cartItemsList.innerHTML = '<li>El carrito está vacío.</li>';
-        cartTotal.textContent = '';
-        cartCount.classList.add('hidden');
-        return;
+        if (cart.length === 0) {
+            cartItemsList.innerHTML = '<li>El carrito está vacío.</li>';
+            cartTotal.textContent = '';
+            if (cartCount) {
+                cartCount.classList.add('hidden');
+            }
+            // Удаляем из localStorage пустую корзину
+            localStorage.removeItem('cart');
+            return;
+        }
+
+        let totalSum = 0;
+
+        cart.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                ${item.color}, ${item.size}, ${item.cantidad} Ud. —  $${item.total}
+                <button class="remove-item" data-index="${index}" title="Quitar el producto">×</button>
+            `;
+            cartItemsList.appendChild(li);
+            totalSum += item.total;
+        });
+
+        cartTotal.textContent = `Total a pagar: $${totalSum}`;
+        if (cartCount) {
+            cartCount.textContent = cart.length;
+            cartCount.classList.remove('hidden');
+        }
+
+        // Обработчик удаления
+        const removeButtons = document.querySelectorAll('.remove-item');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const index = parseInt(button.dataset.index);
+                cart.splice(index, 1);
+                // Обновляем localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+            });
+        });
     }
 
-    let total = 0;
-
-    cart.forEach((item, index) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-            ${item.color}, ${item.size}, ${item.cantidad} Ud. — $${item.total}
-            <button class="remove-item" data-index="${index}" title="Quitar el producto">×</button>
-        `;
-        cartItemsList.appendChild(li);
-        total += item.total;
-    });
-
-    cartTotal.textContent = `Итого к оплате: $${total}`;
-    cartCount.textContent = cart.length;
-    cartCount.classList.remove('hidden');
-
-    // Подключаем обработчики удаления
-    const removeButtons = document.querySelectorAll('.remove-item');
-    removeButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const index = parseInt(button.dataset.index);
-            cart.splice(index, 1);
-            renderCart(); // пересборка
-        });
-    });
-}
-
-    //  Показываем модалку при клике:
-
+    // Показываем модалку при клике:
     if (cartIcon && cartModal) {
-    cartIcon.addEventListener('click', () => {
-        renderCart();
-        cartModal.classList.remove('hidden');
-    });
-}
+        cartIcon.addEventListener('click', () => {
+            renderCart();
+            cartModal.classList.remove('hidden');
+        });
+    }
 
     // ------------------------------
     // 🔸 5. Закрытие модального окна
@@ -194,10 +203,13 @@ Total: $${item.total}`);
     }
 
     // ------------------------------
-    // 🔸 6. Скрытие счётчика при пустой корзине
+    // 🔸 6. Изначально обновляем счетчик при загрузке
     // ------------------------------
 
-    if (cartCount && cart.length === 0) {
+    if (cart.length > 0 && cartCount) {
+        cartCount.textContent = cart.length;
+        cartCount.classList.remove('hidden');
+    } else if (cartCount) {
         cartCount.classList.add('hidden');
     }
 
