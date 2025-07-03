@@ -27,13 +27,13 @@ header {
 
 .header-content {
     text-align: center;
-    flex-grow: 1;
+    /* flex-grow: 1; */
 }
 
 h1 {
     margin: 0;
     font-family: "Tagesschrift", system-ui;
-    font-size: 4vw;
+    font-size: 3.3vw;
     font-weight: bold;
     color: #424344;
     white-space: nowrap;
@@ -51,13 +51,13 @@ nav ul {
 }
 
 nav ul li {
-    font-size: 1.6vw;
+    font-size: 1.4vw;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #000;
-    font-size: 1.8vw;
+    font-size: 1.6vw;
     padding-bottom: 8px;
 }
 
@@ -71,12 +71,24 @@ h2 {
     text-align: center;
 }
 
+#consulta {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: pre-line;
+  background-color: #fefefe;
+  border: 1px solid #ccc;
+  padding: 12px;
+  resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .main-contactos {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 20px;
-    padding-left: 15px;
     height: auto;
 }
 
@@ -125,12 +137,12 @@ section {
 .fcontenedor video,
 .fcontenedor img {
     width: 100%;
-    max-width: 345px;
-    height: auto; 
+    max-width: 300px;
+    height: 470px; 
     object-fit: cover; 
 }
 
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   .fcontenedor {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -140,7 +152,7 @@ section {
     flex: 0 0 auto;
     width: 345px;
   }
-}
+} */
 
 .reproduct {
     width: 100%;
@@ -154,7 +166,12 @@ section {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    font-size: 18px;
+    /* font-size: 14px; */
+}
+
+.selected {
+  outline: 2px solid #2f7ae5;
+  background-color: #e4f0ff;
 }
 
 .img-frasc { 
@@ -184,12 +201,13 @@ section {
     width: 100%;
     box-sizing: border-box;
     margin-top: 30px;
+    padding-left: 30px;
 }
 
 .item-precio ul {
     width: 300px;
     list-style-type: none;
-    padding-inline-start: 30px;
+    padding-inline-start: 25px;
 }
 
 .botones {
@@ -203,7 +221,7 @@ section {
     display: flex;
     justify-content: flex-start; 
     gap: 3px;
-    margin: 15px 0; 
+    /* margin: 15px 0;  */
 }
 
 .color-buttons button {
@@ -219,38 +237,66 @@ section {
 .green { background-color: green; color: white; }
 .brown { background-color: rgb(182, 78, 18); color: white; }
 
-.color-buttons button.active-color {
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05);
-}
-
 .medida-buttons {
     display: flex;
     justify-content: flex-start; 
     gap: 3px;
-    margin: 15px 0; 
+    /* margin: 16px 0;  */
 }
 
 .medida-buttons button {
     cursor: pointer;
 }
 
-.medida-buttons button.active-size {
-    box-shadow: 0 0 0 3px rgba(50, 50, 50, 0.3);
-    transform: scale(1.05);
+/* button.activo {
+  outline: 2px solid #f30404;
+  box-shadow: 0 0 5px #f30404;
+  border-radius: 4px;
+} */
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.modal-content {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  text-align: left;
+  min-width: 250px;
 }
 
-button.active {
-    outline: 2px solid #007bff;
-    font-weight: bold;
+.modal-buttons button {
+  padding: 5px 10px;
+  min-width: 100px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
+.cart-count {
+  background-color: crimson;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 14px;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
 
 .cantidad {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: 20px 0;
+    margin-bottom: 20px;
+    padding-top: 20px;
 }
 
 .cantidad label {
@@ -272,42 +318,34 @@ button.active {
     font-size: 16px;
     background-color: #3363e7;
     color: white;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.bay-batton {
-    display: block;
-    width: 300px;
-    padding: 10px;
-    margin-bottom: 30px;
-    font-size: 16px;
-    background-color: #3363e7;
-    color: white;
-    border-radius: 8px;
+    border-style: none;
+    border-radius: 4px;
     cursor: pointer;
 }
 
 .cart-wrapper {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
+}
+
+#cart-icon {
+  font-size: 20px; 
+  position: relative;
 }
 
 .cart-count {
-    position: absolute;
-    /* top: 5px; настрой по высоте */
-    right: 12px;
-    /* background: red; */
-    color: black;
-    font-size: 10px;
-    padding: 2px 6px;
-    border: 1px solid black; 
-    border-radius: 50%;
-    font-weight: bold;
-}
-
-.hidden {
-    display: none;
+  position: absolute;
+  top: -18px;
+  right: 10px;
+  background-color: crimson;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1;
+  min-width: 20px;
+  text-align: center;
 }
 
 .fa-shopping-cart {
@@ -335,7 +373,6 @@ button.active {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.4);
-    /* display: flex; */ /*-проблема-*/
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -357,6 +394,45 @@ button.active {
     font-size: 24px;
     cursor: pointer;
 }
+
+#lista-carrito {
+  max-height: 300px;      /* можно настроить под нужную высоту */
+  overflow-y: auto;
+  margin-top: 12px;
+  padding-right: 8px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+/* #cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#cart-list li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+  position: relative;
+}
+
+.cerrar {
+  color: crimson;
+  cursor: pointer;  
+}
+
+#cart-list button.eliminar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: transparent;
+  border: 0;
+  font-size: 12px;
+  cursor: pointer;
+} */
 
 footer {  
     text-align: center;
@@ -392,19 +468,6 @@ footer a:hover {
 
 .fa-whatsapp:hover {
     transform: scale(1.2); 
-}
-
-.volver {
-    width: fit-content;
-    display: inline-block;
-    color: red;
-    text-decoration: none;
-    margin: 20px;
-    text-align: left; 
-}
-
-.volver:hover {
-    text-decoration: underline; 
 }
 
 .grilla {
