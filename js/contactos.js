@@ -8,7 +8,6 @@ import {
 document.addEventListener('DOMContentLoaded', () => {
   const carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
 
-  // 🧾 Генерируем текст заявки в поле
   const textarea = document.getElementById('consulta');
   if (textarea) {
     if (carrito.length > 0) {
@@ -30,13 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 📦 Заполняем скрытое поле JSON-структурой
   const campoCarrito = document.getElementById('campo-carrito');
   if (campoCarrito && carrito.length > 0) {
     campoCarrito.value = JSON.stringify(carrito);
   }
 
-  // 🛒 Обновляем счётчик корзины и подключаем обработчики модалки
   actualizarContadorCarrito();
 
   document.getElementById('cart-icon')?.addEventListener('click', mostrarModalCarrito);

@@ -1,4 +1,3 @@
-// Массив с товарами
 export const productos = [
   {
     id: 1,

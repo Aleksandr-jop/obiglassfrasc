@@ -1,24 +1,19 @@
-// 📦 Импорт массива продуктов из файла
 import { productos } from './products.js';
 
 const params = new URLSearchParams(window.location.search);
 const productoId = parseInt(params.get("id"), 10);
 const producto = productos.find(p => p.id === productoId);
 
-// Защита от пустого результата
 if (!producto) {
   document.querySelector(".contenedor-frasco").innerHTML = "<p>Producto no encontrado.</p>";
 }
 
-// 🧠 Здесь будем хранить выбор пользователя
 let selectedColor = null;
 let selectedSize = null;
 
-// 🚀 Функция рендера карточки товара
 function renderFrasco(producto) {
   const contenedor = document.querySelector(".contenedor-frasco");
 
-  // 🧼 Группировка по цвету
   const colores = ["Ambar", "Claro", "Verde/Azul"];
   const listasPorColor = colores.map(color => {
     const variantes = producto.variants
@@ -31,7 +26,6 @@ function renderFrasco(producto) {
     return `<div><ul>${variantes}</ul></div>`;
   }).join("");
 
-  // 🖼️ Рендер карточки
   contenedor.innerHTML = `
     <div class="img-frasc">
       <img src="${producto.image}" alt="${producto.name}">
@@ -73,7 +67,6 @@ function renderFrasco(producto) {
   `;
 }
 
-// 🎛 Навешиваем обработчики на кнопки выбора цвета и размера
 function manejarSeleccion() {
   const colorButtons = document.querySelectorAll(".color-buttons button");
   const sizeButtons = document.querySelectorAll(".medida-buttons button");
@@ -95,7 +88,6 @@ function manejarSeleccion() {
   });
 }
 
-// 📍 Запускаем рендер и навешивание событий после загрузки страницы
 document.addEventListener("DOMContentLoaded", () => {
 document.getElementById("cart-icon").addEventListener("click", mostrarModalCarrito);
 document.getElementById("cerrar-modal").addEventListener("click", () =>
@@ -124,10 +116,9 @@ function manejarCompra() {
       return;
     }
 
-    // Ищем нужную комбинацию цвета и размера
     const variant = producto.variants.find(v => {
     const colorMatch = (
-    v.color === selectedColor ||              // прямое совпадение
+    v.color === selectedColor ||            
     v.color === "Verde/Azul" && (selectedColor === "Verde" || selectedColor === "Azul")
   );
   return colorMatch && v.size === selectedSize;
@@ -148,11 +139,9 @@ function manejarCompra() {
       total: cantidad * variant.price
     };
 
-     // 💾 Получаем текущую корзину и добавляем товар
     const existingCart = JSON.parse(localStorage.getItem("carrito")) || [];
     existingCart.push(item);
 
-    // 💾 Сохраняем корзину обратно и обновляем счётчик
     localStorage.setItem("carrito", JSON.stringify(existingCart));
     actualizarContadorCarrito();
 
@@ -173,7 +162,7 @@ function actualizarContadorCarrito() {
   const cartCountEl = document.getElementById("cart-count");
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  const totalItems = carrito.length; // ← показываем количество уникальных товаров
+  const totalItems = carrito.length;
 
   if (totalItems > 0) {
     cartCountEl.textContent = totalItems;
@@ -214,7 +203,6 @@ function mostrarModalCarrito() {
 
   modal.classList.remove("hidden");
 
-  // Навесим события на кнопки удаления
   document.querySelectorAll(".eliminar-item").forEach(btn => {
     btn.addEventListener("click", () => {
       const index = parseInt(btn.getAttribute("data-index"));
@@ -228,13 +216,13 @@ function eliminarItemDelCarrito(index) {
   carrito.splice(index, 1);
   localStorage.setItem("carrito", JSON.stringify(carrito));
   actualizarContadorCarrito();
-  mostrarModalCarrito(); // перерисовываем модалку
+  mostrarModalCarrito(); 
 }
 
 function vaciarCarrito() {
   localStorage.removeItem("carrito");
   actualizarContadorCarrito();
-  mostrarModalCarrito(); // покажет "карзина пуста"
+  mostrarModalCarrito(); 
 }
 
 function cerrarModalCarrito() {

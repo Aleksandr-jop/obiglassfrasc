@@ -39,7 +39,6 @@ export function mostrarModalCarrito() {
   totalEl.textContent = `🧾 Total del carrito: $${total.toLocaleString('es-AR')}`;
   modal.classList.remove("hidden");
 
-  // Удаление товара
   lista.querySelectorAll(".eliminar-item").forEach(btn => {
     btn.addEventListener("click", () => {
       carrito.splice(Number(btn.dataset.index), 1);

@@ -137,12 +137,12 @@ section {
 .fcontenedor video,
 .fcontenedor img {
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
     height: 470px; 
     object-fit: cover; 
 }
 
-/* @media (max-width: 1000px) {
+@media (max-width: 1000px) {
   .fcontenedor {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -152,7 +152,7 @@ section {
     flex: 0 0 auto;
     width: 345px;
   }
-} */
+}
 
 .reproduct {
     width: 100%;
@@ -166,7 +166,7 @@ section {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    /* font-size: 14px; */
+    font-size: 14px;
 }
 
 .selected {
@@ -201,7 +201,7 @@ section {
     width: 100%;
     box-sizing: border-box;
     margin-top: 30px;
-    padding-left: 30px;
+    padding-left: 15px;
 }
 
 .item-precio ul {
@@ -221,7 +221,6 @@ section {
     display: flex;
     justify-content: flex-start; 
     gap: 3px;
-    /* margin: 15px 0;  */
 }
 
 .color-buttons button {
@@ -247,12 +246,6 @@ section {
 .medida-buttons button {
     cursor: pointer;
 }
-
-/* button.activo {
-  outline: 2px solid #f30404;
-  box-shadow: 0 0 5px #f30404;
-  border-radius: 4px;
-} */
 
 .modal {
   position: fixed;
@@ -396,43 +389,13 @@ section {
 }
 
 #lista-carrito {
-  max-height: 300px;      /* можно настроить под нужную высоту */
+  max-height: 300px;     
   overflow-y: auto;
   margin-top: 12px;
   padding-right: 8px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
-
-/* #cart-list {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-#cart-list li {
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 8px;
-  position: relative;
-}
-
-.cerrar {
-  color: crimson;
-  cursor: pointer;  
-}
-
-#cart-list button.eliminar {
-  position: absolute;
-  right: 0;
-  top: 0;
-  background: transparent;
-  border: 0;
-  font-size: 12px;
-  cursor: pointer;
-} */
 
 footer {  
     text-align: center;
