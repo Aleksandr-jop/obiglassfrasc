@@ -128,16 +128,16 @@ section {
     gap: 5px; 
 }
 
-.fcontenedor > * {
+/* .fcontenedor > * {
   flex: 1 1 345px;
   width: 345px;
-}
+} */
 
 .fcontenedor iframe,
 .fcontenedor video,
 .fcontenedor img {
     width: 100%;
-    max-width: 335px;
+    max-width: 320px;
     height: 470px; 
     object-fit: cover; 
 }
