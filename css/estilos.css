@@ -165,7 +165,6 @@ section {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    font-size: 14px;
 }
 
 .selected {
@@ -193,6 +192,7 @@ section {
 }
 
 .item-precio {
+    font-size: 16px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
