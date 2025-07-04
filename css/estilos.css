@@ -136,7 +136,7 @@ section {
 .fcontenedor iframe,
 .fcontenedor video,
 .fcontenedor img {
-    width: 320px;
+    width: 330px;
     height: 470px; 
     object-fit: cover; 
 }
@@ -165,7 +165,7 @@ section {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .selected {
