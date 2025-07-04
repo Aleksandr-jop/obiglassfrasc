@@ -136,9 +136,8 @@ section {
 .fcontenedor iframe,
 .fcontenedor video,
 .fcontenedor img {
-    width: 100%;
-    max-width: 345px;
-    height: auto; 
+    width: 330px;
+    height: 470px; 
     object-fit: cover; 
 }
 
