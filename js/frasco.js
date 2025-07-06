@@ -89,14 +89,23 @@ function manejarSeleccion() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-document.getElementById("cart-icon").addEventListener("click", mostrarModalCarrito);
-document.getElementById("cerrar-modal").addEventListener("click", () =>
-  document.getElementById("modal-carrito").classList.add("hidden")
-);
-document.getElementById("vaciar-carrito").addEventListener("click", vaciarCarrito);
-document.getElementById("pagar-carrito").addEventListener("click", () => {
-  window.location.href = "contactos.html";
-});
+  document.getElementById("cart-icon")?.addEventListener("click", mostrarModalCarrito);
+
+  document.getElementById("cerrar-modal")?.addEventListener("click", () => {
+    document.getElementById("modal-carrito").classList.add("hidden");
+  });
+
+  document.getElementById("vaciar-carrito")?.addEventListener("click", () => {
+    localStorage.removeItem("carrito");
+    actualizarContadorCarrito();
+    cerrarModalCarrito();
+  });
+
+  document.getElementById("pagar-carrito")?.addEventListener("click", () => {
+    alert("🧾 Gracias por tu compra!");
+    window.location.href = "contactos.html";
+  });
+
   renderFrasco(producto);
   manejarSeleccion();
   manejarCompra();

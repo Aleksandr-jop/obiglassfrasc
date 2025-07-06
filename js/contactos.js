@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       texto += `\n💵 Total a pagar: $${total.toLocaleString('es-AR')}`;
       textarea.value = texto;
     } else {
-      textarea.value = 'No hay productos en el carrito.';
+      textarea.value = 'Escribí tu consulta.';
     }
   }
 
@@ -39,19 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('cart-icon')?.addEventListener('click', mostrarModalCarrito);
   document.getElementById('cerrar-modal')?.addEventListener('click', cerrarModalCarrito);
   document.getElementById('vaciar-carrito')?.addEventListener('click', vaciarCarrito);
-  document.getElementById('pagar-carrito')?.addEventListener('click', () => {
-    alert('🧾 Gracias por tu compra!');
-    localStorage.removeItem('carrito');
-    actualizarContadorCarrito();
-    cerrarModalCarrito();
-  });
 
   const btnPagar = document.getElementById("pagar-carrito");
-if (btnPagar) {
-  btnPagar.disabled = true;
-  btnPagar.style.opacity = "0.5";
-  btnPagar.style.cursor = "not-allowed";
-  btnPagar.title = "El pago se realiza en la página de productos";
-}
-
+  if (btnPagar) {
+    btnPagar.disabled = true;
+    btnPagar.style.opacity = "0.5";
+    btnPagar.style.cursor = "not-allowed";
+    btnPagar.title = "El pago se realiza en la página de productos";
+  }
 });
