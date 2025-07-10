@@ -83,6 +83,17 @@ h2 {
   box-sizing: border-box;
 }
 
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+  padding: 8px;
+  margin-bottom: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 .main-contactos {
     display: flex;
     flex-wrap: wrap;
