@@ -119,7 +119,6 @@ function manejarCompra() {
     const cantidadInput = document.getElementById("cantidad");
     const cantidad = parseInt(cantidadInput.value, 10);
 
-
     if (!selectedColor || !selectedSize) {
       alert("Por favor, seleccioná un color y un tamaño.");
       return;
@@ -237,6 +236,3 @@ function vaciarCarrito() {
 function cerrarModalCarrito() {
   document.getElementById("modal-carrito").classList.add("hidden");
 }
-
-console.log(typeof item.price, item.price);
-console.log(typeof item.total, item.total);
