@@ -14,14 +14,11 @@ let selectedSize = null;
 function renderFrasco(producto) {
   const contenedor = document.querySelector(".contenedor-frasco");
 
-  const colores = ["Ambar", "Claro", "Verde/Azul"];
-  const listasPorColor = colores.map(color => {
-    const variantes = producto.variants
-      .filter(v => v.color === color)
-      .map(v => {
-        const precio = v.price.toLocaleString('es-AR');
-        return `<li>Frasco ${color} x${v.size} $${precio}</li>`;
-      }).join("");
+  const listasPorColor = Object.entries(producto.variants).map(([color, tamanios]) => {
+    const variantes = Object.entries(tamanios).map(([size, price]) => {
+      const precio = price.toLocaleString('es-AR');
+      return `<li>Frasco ${color} x${size} $${precio}</li>`;
+    }).join("");
 
     return `<div><ul>${variantes}</ul></div>`;
   }).join("");
@@ -40,8 +37,8 @@ function renderFrasco(producto) {
       <div class="botones">
         <p>Selecciona color:</p>
         <div class="color-buttons">
-          <button class="green" data-color="Verde">Verde</button>
-          <button class="blue" data-color="Azul">Azul</button>
+          <button class="green" data-color="Verde/Azul">Verde</button>
+          <button class="blue" data-color="Verde/Azul">Azul</button>
           <button class="white" data-color="Claro">Claro</button>
           <button class="brown" data-color="Ambar">Ambar</button>
         </div>
@@ -61,7 +58,7 @@ function renderFrasco(producto) {
           <input type="number" id="cantidad" name="cantidad" min="1" value="1">
         </div>
 
-        <button class="buy-button">Agregar al carrito</button>
+        <button class="buy-button" data-product-id="${producto.id}">Agregar al carrito</button>
       </div>
     </div>
   `;
@@ -73,7 +70,7 @@ function manejarSeleccion() {
 
   colorButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-      selectedColor = btn.textContent.trim();
+      selectedColor = btn.dataset.color;
       colorButtons.forEach(b => b.classList.remove("selected"));
       btn.classList.add("selected");
     });
@@ -81,7 +78,7 @@ function manejarSeleccion() {
 
   sizeButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-      selectedSize = btn.textContent.trim().toUpperCase();
+      selectedSize = btn.dataset.size;
       sizeButtons.forEach(b => b.classList.remove("selected"));
       btn.classList.add("selected");
     });
@@ -108,11 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderFrasco(producto);
   manejarSeleccion();
-  manejarCompra();
+  manejarCompra(producto); // ✅ с передачей самого товара
   actualizarContadorCarrito();
 });
 
-function manejarCompra() {
+function manejarCompra(producto) {
   const buyButton = document.querySelector(".buy-button");
 
   buyButton.addEventListener("click", () => {
@@ -124,18 +121,20 @@ function manejarCompra() {
       return;
     }
 
-    const variant = producto.variants.find(v => {
-    const colorMatch = (
-    v.color === selectedColor ||            
-    v.color === "Verde/Azul" && (selectedColor === "Verde" || selectedColor === "Azul")
-  );
-  return colorMatch && v.size === selectedSize;
-});
+    // Объединяем Verde и Azul как "Verde/Azul"
+    const colorKey =
+      selectedColor === "Verde" || selectedColor === "Azul"
+        ? "Verde/Azul"
+        : selectedColor;
 
-    if (!variant) {
+    const tamanios = producto.variants[colorKey];
+
+    if (!tamanios || !(selectedSize in tamanios)) {
       alert("Esa combinación no está disponible.");
       return;
     }
+
+    const price = tamanios[selectedSize];
 
     const item = {
       id: producto.id,
@@ -143,8 +142,8 @@ function manejarCompra() {
       color: selectedColor,
       size: selectedSize,
       quantity: cantidad,
-      price: variant.price,
-      total: cantidad * variant.price
+      price,
+      total: cantidad * price
     };
 
     const existingCart = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -153,15 +152,14 @@ function manejarCompra() {
     localStorage.setItem("carrito", JSON.stringify(existingCart));
     actualizarContadorCarrito();
 
-
     alert(
-       `✔️ EL PRODUCTO AGREGADO:\n\n` +
-      `${item.name}\n` +
-      `Color - ${item.color}\n` +
-      `Tamaño - ${item.size}\n` +
-      `Cantidad - ${item.quantity} Ud.\n` +
-      `Precio c/u - $${item.price.toLocaleString('es-AR')}\n` +
-      `Total - $${item.total.toLocaleString('es-AR')}`
+      `✔️ EL PRODUCTO AGREGADO:\n\n` +
+        `${item.name}\n` +
+        `Color - ${item.color}\n` +
+        `Tamaño - ${item.size}\n` +
+        `Cantidad - ${item.quantity} Ud.\n` +
+        `Precio c/u - $${item.price.toLocaleString('es-AR')}\n` +
+        `Total - $${item.total.toLocaleString('es-AR')}`
     );
   });
 }
