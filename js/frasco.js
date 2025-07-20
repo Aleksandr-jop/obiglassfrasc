@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderFrasco(producto);
   manejarSeleccion();
-  manejarCompra(producto); // ✅ с передачей самого товара
+  manejarCompra(producto);
   actualizarContadorCarrito();
 });
 
@@ -121,7 +121,6 @@ function manejarCompra(producto) {
       return;
     }
 
-    // Объединяем Verde и Azul как "Verde/Azul"
     const colorKey =
       selectedColor === "Verde" || selectedColor === "Azul"
         ? "Verde/Azul"
