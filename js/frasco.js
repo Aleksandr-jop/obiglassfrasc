@@ -1,4 +1,7 @@
-import { productos } from './products.js';
+import { productos as productosDefault } from './products.js';
+const productos = JSON.parse(localStorage.getItem('productos')) || productosDefault;
+
+// ...остальной код...
 
 const params = new URLSearchParams(window.location.search);
 const productoId = parseInt(params.get("id"), 10);
@@ -233,3 +236,9 @@ function vaciarCarrito() {
 function cerrarModalCarrito() {
   document.getElementById("modal-carrito").classList.add("hidden");
 }
+
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'u') {
+    window.open('update-prices.html', '_blank');
+  }
+});
