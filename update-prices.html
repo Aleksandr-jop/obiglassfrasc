@@ -2,34 +2,67 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Обновление цен</title>
+  <title>Actualizar precios</title>
   <link rel="stylesheet" href="./css/estilos.css">
+  <style>
+    .update-container {
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 30px 24px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      background: #fafbfc;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+    .update-container h2 {
+      margin-bottom: 24px;
+      font-size: 1.3em;
+      color: #1a237e;
+    }
+    #percent-input {
+      width: 70%;
+      padding: 8px;
+      font-size: 1em;
+      border-radius: 6px;
+      border: 1px solid #bdbdbd;
+      margin-bottom: 18px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    #update-prices-btn {
+      padding: 10px 28px;
+      font-size: 1em;
+      border-radius: 6px;
+      border: none;
+      background: #1976d2;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 6px rgba(25,118,210,0.08);
+    }
+    #update-prices-btn:hover {
+      background: #1565c0;
+    }
+    #result-msg {
+      margin-top: 18px;
+      font-weight: 500;
+      min-height: 24px;
+    }
+  </style>
 </head>
 <body>
-  <main style="max-width:400px;margin:40px auto;padding:20px;border:1px solid #ccc;border-radius:8px;">
-    <h2>Actualizar precios a todos los productos</h2>
-    <input type="number" id="percent-input" step="0.1" placeholder="Escribe % (ej:2,5 o -1,5)">
-    <button id="update-prices-btn" style="margin-left:10px;">Actualizar</button>
-    <p id="result-msg" style="margin-top:20px;color:green;"></p>
+  <main>
+    <div class="update-container">
+      <h2>Actualizar precios a todos los productos</h2>
+      <input type="number" id="percent-input" step="0.1" placeholder="Escribe % (ej:2,5 o -1,5)">
+      <br>
+      <button id="update-prices-btn">Actualizar</button>
+      <p id="result-msg"></p>
+    </div>
   </main>
-  <script type="module">
-  import { productos, updatePricesLocal } from './js/products.js';
-
-  document.getElementById('update-prices-btn').addEventListener('click', () => {
-    const percentInput = document.getElementById('percent-input');
-    const percent = parseFloat(percentInput.value);
-    const resultMsg = document.getElementById('result-msg');
-    if (isNaN(percent)) {
-      resultMsg.textContent = 'Введите корректный процент!';
-      resultMsg.style.color = 'red';
-      return;
-    }
-    // Обновляем цены и сохраняем в localStorage
-    const nuevosProductos = updatePricesLocal(percent);
-    localStorage.setItem('productos', JSON.stringify(nuevosProductos));
-    resultMsg.textContent = `Precios actualizados en ${percent > 0 ? '+' : ''}${percent}% y guardados!`;
-    resultMsg.style.color = 'green';
-  });
-</script>
+  <script type="module" src="./js/update-prices.js"></script>
 </body>
 </html>
