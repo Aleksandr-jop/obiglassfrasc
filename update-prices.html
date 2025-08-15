@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Actualizar precios</title>
-  <link rel="stylesheet" href="./css/estilos.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    body {
+      background: #f5f7fa;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
     .update-container {
       max-width: 400px;
       margin: 40px auto;
@@ -51,6 +57,15 @@
       font-weight: 500;
       min-height: 24px;
     }
+    @media (max-width: 500px) {
+      .update-container {
+        max-width: 95vw;
+        padding: 18px 6vw;
+      }
+      #percent-input {
+        width: 95%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -63,6 +78,23 @@
       <p id="result-msg"></p>
     </div>
   </main>
-  <script type="module" src="./js/update-prices.js"></script>
+  <script type="module">
+    import { productos, updatePricesLocal } from './js/products.js';
+
+    document.getElementById('update-prices-btn').addEventListener('click', () => {
+      const percentInput = document.getElementById('percent-input');
+      const percent = parseFloat(percentInput.value);
+      const resultMsg = document.getElementById('result-msg');
+      if (isNaN(percent)) {
+        resultMsg.textContent = '¡Escribe el porcentaje correcto!';
+        resultMsg.style.color = 'red';
+        return;
+      }
+      const nuevosProductos = updatePricesLocal(percent);
+      localStorage.setItem('productos', JSON.stringify(nuevosProductos));
+      resultMsg.textContent = `Precios actualizados en ${percent > 0 ? '+' : ''}${percent}% y guardados!`;
+      resultMsg.style.color = 'green';
+    });
+  </script>
 </body>
 </html>
