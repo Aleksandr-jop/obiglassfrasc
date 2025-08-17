@@ -1,22 +1,3 @@
-export function updatePricesLocal(percent = 10) {
-  return productos.map(product => ({
-    ...product,
-    variants: Object.fromEntries(
-      Object.entries(product.variants).map(([variantName, sizes]) => [
-        variantName,
-        Object.fromEntries(
-          Object.entries(sizes).map(([size, price]) => [
-            size,
-            percent >= 0
-              ? Math.ceil(price * (1 + percent / 100))
-              : Math.floor(price * (1 + percent / 100))
-          ])
-        )
-      ])
-    )
-  }));
-}
-
 export const productos = [
   {
     "id": 1,

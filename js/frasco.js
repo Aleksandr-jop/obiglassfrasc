@@ -1,7 +1,4 @@
-import { productos as productosDefault } from './products.js';
-const productos = JSON.parse(localStorage.getItem('productos')) || productosDefault;
-
-// ...остальной код...
+import { productos } from './products.js';
 
 const params = new URLSearchParams(window.location.search);
 const productoId = parseInt(params.get("id"), 10);
