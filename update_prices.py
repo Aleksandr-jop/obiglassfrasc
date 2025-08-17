@@ -6,7 +6,7 @@ def update_price(price, percent):
 
 def main():
     percent = float(input("Введите процент изменения (например, 10 или -5): "))
-    js_path = r'c:\Users\aleks\Documents\ProgramacioN\obiglas\js\products.js'
+    js_path = r'c:\Users\aleks\Documents\ProgramacioN\OBIGLASS\obiglas(обновление цен с python)\js\products.js'
 
     with open(js_path, encoding='utf-8') as f:
         js_code = f.read()
