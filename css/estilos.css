@@ -103,12 +103,17 @@ form textarea {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin: 20px;
+    padding: 30px;
     height: auto;
 }
 
 .main-contactos input {
     cursor: pointer;
+}
+
+.main-ubicacion {
+    align-items: center;
+    padding: 60px;
 }
 
 * {
@@ -437,6 +442,7 @@ footer a:hover {
 }
 
 .fa-whatsapp {
+    text-decoration: none !important;
     position: fixed;
     bottom: 15px;
     left: 15px; 
